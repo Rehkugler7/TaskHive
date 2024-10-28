@@ -4,6 +4,14 @@
       <root url="file://$USER_HOME$/Downloads/processing-4.3-windows-x64/processing-4.3/core/library" />
     </CLASSES>
     <JAVADOC />
+    <NATIVE>
+      <root url="file://$USER_HOME$/Downloads/processing-4.3-windows-x64/processing-4.3/core/library/windows-amd64" />
+      <root url="file://$USER_HOME$/Downloads/processing-4.3-windows-x64/processing-4.3/core/library/windows-amd64" />
+      <root url="file://$USER_HOME$/Downloads/processing-4.3-windows-x64/processing-4.3/core/library/windows-amd64" />
+      <root url="file://$USER_HOME$/Downloads/processing-4.3-windows-x64/processing-4.3/core/library/windows-amd64" />
+      <root url="file://$USER_HOME$/Downloads/processing-4.3-windows-x64/processing-4.3/core/library/windows-amd64" />
+      <root url="file://$USER_HOME$/Downloads/processing-4.3-windows-x64/processing-4.3/core/library/windows-amd64" />
+    </NATIVE>
     <SOURCES />
     <jarDirectory url="file://$USER_HOME$/Downloads/processing-4.3-windows-x64/processing-4.3/core/library" recursive="false" />
   </library>
