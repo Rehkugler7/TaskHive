@@ -5,8 +5,10 @@ public class TaskHive extends PApplet {
     /*Para mañana:
     - mejorar calidad user y logo
     - cambiar tipografia logo
-    - botones redondos
-    - textfield
+    - textfield añadir boolean contraseña
+    - añadir cursor boton
+    - añadir icons del banner
+    - añadir tipografía por todo, selects
      */
 
     ColorPalette appColors;
@@ -16,8 +18,6 @@ public class TaskHive extends PApplet {
    GUI gui;
 
    Icons icons;
-
-   RectButtons CreateAccount;
 
 
     public static void main(String[] args) {
@@ -34,7 +34,6 @@ public class TaskHive extends PApplet {
         appFonts = new Fonts(this);
         gui = new GUI(this, appColors);
         icons = new Icons(this);
-        CreateAccount = new RectButtons(this, "CREATE ACCOUNT", width/8+(width/8), 5*height/6-(height/16), width/4, height/8);
     }
 
     public void draw(){
@@ -45,8 +44,6 @@ public class TaskHive extends PApplet {
 
         switch(gui.currentScreen){
             case LogIn: gui.drawLogIn(this);
-            CreateAccount.display(this);
-            CreateAccount.updateCursor(this);
 
             break;
 
@@ -62,6 +59,27 @@ public class TaskHive extends PApplet {
         /*rectMode(CENTER);
         image(icons.getUserIcon(), width/4, height/5);*/
 
+    }
+
+
+    public void mousePressed(){
+        gui.UserName.isPressed(this);
+        gui.Password.isPressed(this);
+        gui.Hive.isPressed(this);
+        gui.CreateAccount.updateCursor(this);
+
+        if(gui.Edit.mouseOverSelect(this)){
+            if(!gui.Edit.isCollapsed()){
+                gui.Edit.update(this);      // Actualitzar valor
+            }
+            gui.Edit.toggle();        // Plegar o desplegar
+        }
+    }
+
+    public void keyPressed(){
+        gui.UserName.keyPressed(key, keyCode);
+        gui.Password.keyPressed(key, keyCode);
+        gui.Hive.keyPressed(key, keyCode);
     }
 
 }

@@ -10,19 +10,27 @@ public class GUI {
     public Screen currentScreen;
 
    ColorPalette Colors;
-    Icons Icons;
-    float w, h;
+   RectButtons CreateAccount;
+   TextField UserName;
+   TextField Password;
+   TextField Hive;
+   Icons Icons;
+   Select Edit;
+   String[] optionsEdit = {"User 1", "User 2", "User 3"};
+   float w, h;
 
-
-
-    //Constructor, (NO L'ENTENC!!!)
 
     public GUI(PApplet pcs, ColorPalette colorPalette){
         w = pcs.width;
         h = pcs.height;
-        currentScreen=Screen.LogIn;
+        currentScreen=Screen.Calendar;
         this.Colors = colorPalette;
         this.Icons = Icons;
+        CreateAccount = new RectButtons(pcs, "CREATE ACCOUNT", w/8+(w/8), 5*h/6-(h/16), w/4, h/8);
+        UserName = new TextField(pcs,w/8, 2*h/3-(h/4), 3*w/8, 120, "Username:");
+        Password = new TextField(pcs,w/8, 2*h/3-(h/6), 3*w/8, 120, "Password:");
+        Hive = new TextField(pcs,w/8, 2*h/3-(h/12), 3*w/8, 100, "Hive:");
+        Edit = new Select(optionsEdit, 100, 100, 200, 50, colorPalette);
     }
 
     /* *************** SCREENS **************** */
@@ -45,11 +53,22 @@ public class GUI {
 
         pcs.image(Icons.getLogoIcon(), 3*w/4-500, h/2-500, 1000,1000);
 
+        CreateAccount.display(pcs);
+        CreateAccount.updateCursor(pcs);
+
+        UserName.display(pcs);
+        Password.display(pcs);
+        Hive.display(pcs);
+
     }
 
     public void drawCalendar(PApplet pcs){
 
-        //too complex as for now
+        pcs.background(Colors.getWhite());
+
+        Edit.display(pcs);
+
+
 
     }
 
