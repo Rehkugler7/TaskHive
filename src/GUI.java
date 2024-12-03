@@ -18,6 +18,7 @@ public class GUI {
    Select Edit;
    String[] optionsEdit = {"User 1", "User 2", "User 3"};
    float w, h;
+   Calendar Calendar;
 
 
     public GUI(PApplet pcs, ColorPalette colorPalette){
@@ -31,6 +32,7 @@ public class GUI {
         Password = new TextField(pcs,w/8, 2*h/3-(h/6), 3*w/8, 120, "Password:");
         Hive = new TextField(pcs,w/8, 2*h/3-(h/12), 3*w/8, 100, "Hive:");
         Edit = new Select(optionsEdit, 100, 100, 200, 50, colorPalette);
+        Calendar = new Calendar(pcs,(3*w/8), 2*h/19, (w-3*w/8)-20, 17*h/19-20);
     }
 
     /* *************** SCREENS **************** */
@@ -67,6 +69,10 @@ public class GUI {
         pcs.background(Colors.getWhite());
 
         Edit.display(pcs);
+
+        Calendar.display(pcs);
+
+
 
 
 

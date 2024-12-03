@@ -9,6 +9,10 @@ public class TaskHive extends PApplet {
     - añadir cursor boton
     - añadir icons del banner
     - añadir tipografía por todo, selects
+    - cambiar colores select
+    - añadir iconos round button y hacerlo
+    - cambiar idioma
+    - afegir ifs a keyPressed i a mousePressed
      */
 
     ColorPalette appColors;
@@ -70,16 +74,24 @@ public class TaskHive extends PApplet {
 
         if(gui.Edit.mouseOverSelect(this)){
             if(!gui.Edit.isCollapsed()){
-                gui.Edit.update(this);      // Actualitzar valor
+                gui.Edit.update(this);
             }
-            gui.Edit.toggle();        // Plegar o desplegar
+            gui.Edit.toggle();
         }
+
+        gui.Calendar.checkButtons(this);
     }
 
     public void keyPressed(){
         gui.UserName.keyPressed(key, keyCode);
         gui.Password.keyPressed(key, keyCode);
         gui.Hive.keyPressed(key, keyCode);
+        if(keyCode==LEFT){
+            gui.Calendar.lastMonth();
+        }
+        else if(keyCode==RIGHT){
+            gui.Calendar.nextMonth();
+        }
     }
 
 }

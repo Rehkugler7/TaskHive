@@ -10,7 +10,7 @@ public class ColorPalette {
 
     void setColorPalette(PApplet pcs){
 
-        this.palette= new int[7];
+        this.palette= new int[8];
 
         //Primary colors: Yellow and orange, respectively
         this.palette[0] = pcs.color(255, 195, 11);
@@ -23,9 +23,10 @@ public class ColorPalette {
         //Tertiary color: Red
         this.palette[4] = pcs.color(181, 0, 0);
 
-        //Black and white
-        this.palette[5] = pcs.color(0, 0, 0);
-        this.palette[6] = pcs.color(255, 255, 255);
+        //Black, white & grey
+        this.palette[5] = pcs.color(0);
+        this.palette[6] = pcs.color(255);
+        this.palette[7] = pcs.color(220);
 
     }
 
@@ -58,6 +59,8 @@ public class ColorPalette {
     int getWhite(){
         return this.palette[6];
     }
+
+    int getGrey(){ return this.palette[7];}
 
     int getColorAt(int i){
         return this.palette[i];
