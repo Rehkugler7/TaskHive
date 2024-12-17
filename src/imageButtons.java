@@ -8,32 +8,36 @@ public class imageButtons {
     float x,y,r;
     int Color, Black;
     PImage icon;
-    ColorPalette appColors;
+    int strokeCol, fillCol;
     int strokeOne, strokeTwo;
+    boolean enabled;
 
-    public imageButtons(PApplet pcs, PImage icon, float x, float y, float r) {
+    public imageButtons(PApplet pcs, PImage icon, float x, float y, float r, boolean enabled) {
         this.icon = icon;
         this.x = x; this.y = y; this.r = r;
-        appColors = new ColorPalette(pcs);
-        this.Color = appColors.getPrimaryOne();
-        this.Black = appColors.getBlack();
         strokeOne = 3; strokeTwo = 6;
+        this.enabled=enabled;
     }
 
-    public void setColor(int cFill){
-        this.Color = cFill;
+    public void setColors(int cStroke, int cFill){
+        this.strokeCol = cStroke;
+        this.fillCol = cFill;
+    }
+
+    public void setEnabled(boolean b){
+        this.enabled = b;
     }
 
     public void display(PApplet pcs){
         pcs.pushStyle();
-        pcs.fill(Color);
+        pcs.fill(fillCol);
         if(mouseOverButton(pcs)){
             pcs.strokeWeight(strokeTwo);
         }
         else{
             pcs.strokeWeight(strokeOne);
         }
-        pcs.stroke(Black);
+        pcs.stroke(strokeCol);
         pcs.circle(x, y, r);
         pcs.imageMode(pcs.CENTER);
         pcs.image(this.icon, this.x, this.y, 2*this.r, 2*this.r);

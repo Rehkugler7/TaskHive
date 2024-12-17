@@ -12,12 +12,15 @@ public class Icons {
     }
 
     void setIcons(PApplet pcs){
-        this.Icons = new PImage[2];
+        this.Icons = new PImage[3];
 
         //Log In Icons: First two
 
         this.Icons[0] = pcs.loadImage("UserIcon.png");
-        this.Icons[1] = pcs.loadImage("logo.png"); //FALTA CAMBIAR TIPOGRAFIA!!!
+        this.Icons[1] = pcs.loadImage("logo.png");
+
+        //Notif Icon: ok, no
+        this.Icons[2] = pcs.loadImage("cuzNoPic4now.png");
     }
 
     //Getters for each icon
@@ -28,5 +31,9 @@ public class Icons {
 
     PImage getLogoIcon() {
         return this.Icons[1];
+    }
+
+    PImage getOkIcon() {
+        return this.Icons[2];
     }
 }

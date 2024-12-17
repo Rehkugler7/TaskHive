@@ -9,6 +9,7 @@ public class RectButtons {
     int colorButton;//color of text buttons
     int strokeOne, strokeTwo; // usual stroke vs stroke when mouse on the button
     String text;
+    Fonts rectButtonFont;
 
     public RectButtons(PApplet pcs, String text, float x, float y, float w, float h){
         this.text=text;
@@ -23,6 +24,10 @@ public class RectButtons {
     }
 
     //text setter
+
+    /*public void setRectButtonFont(Fonts font){
+        this.rectButtonFont=font;
+    }*/
 
     public void setText(String text){
         this.text=text;

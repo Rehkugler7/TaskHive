@@ -10,6 +10,7 @@ public class GUI {
     public Screen currentScreen;
 
    ColorPalette Colors;
+   Fonts Font;
    RectButtons CreateAccount;
    TextField UserName;
    TextField Password;
@@ -19,20 +20,25 @@ public class GUI {
    String[] optionsEdit = {"User 1", "User 2", "User 3"};
    float w, h;
    Calendar Calendar;
+   TextArea Notes;
+   Notif TaskDone;
 
 
-    public GUI(PApplet pcs, ColorPalette colorPalette){
+    public GUI(PApplet pcs, ColorPalette colorPalette, Fonts font){
         w = pcs.width;
         h = pcs.height;
-        currentScreen=Screen.Calendar;
+        currentScreen=Screen.LogIn;
         this.Colors = colorPalette;
+        this.Font = font;
         this.Icons = Icons;
         CreateAccount = new RectButtons(pcs, "CREATE ACCOUNT", w/8+(w/8), 5*h/6-(h/16), w/4, h/8);
-        UserName = new TextField(pcs,w/8, 2*h/3-(h/4), 3*w/8, 120, "Username:");
-        Password = new TextField(pcs,w/8, 2*h/3-(h/6), 3*w/8, 120, "Password:");
-        Hive = new TextField(pcs,w/8, 2*h/3-(h/12), 3*w/8, 100, "Hive:");
-        Edit = new Select(optionsEdit, 100, 100, 200, 50, colorPalette);
+        UserName = new TextField(pcs,w/8, 2*h/3-(h/4), 3*w/8,30, 120, "Username:");
+        Password = new TextField(pcs,w/8, 2*h/3-(h/6), 3*w/8,30, 120, "Password:");
+        Hive = new TextField(pcs,w/8, 2*h/3-(h/12), 3*w/8, 30,100, "Hive:");
+        Edit = new Select(optionsEdit, 300, 400, 100, 25, colorPalette);
         Calendar = new Calendar(pcs,(3*w/8), 2*h/19, (w-3*w/8)-20, 17*h/19-20);
+        Notes = new TextArea(pcs, 50F, 2*h/3, (w-150)-((w-3*w/8)-20), h/4, 50,6);
+        TaskDone = new Notif(pcs, "USUARIO 1 ha completado LAVAR PLATOS", 50F, 5*h/12,(w-150)-((w-3*w/8)-20), h/8, this.Colors.getBlack(), this.Colors.getWhite());
     }
 
     /* *************** SCREENS **************** */
@@ -55,6 +61,8 @@ public class GUI {
 
         pcs.image(Icons.getLogoIcon(), 3*w/4-500, h/2-500, 1000,1000);
 
+        pcs.textFont(Font.getMainFontM());
+
         CreateAccount.display(pcs);
         CreateAccount.updateCursor(pcs);
 
@@ -68,23 +76,29 @@ public class GUI {
 
         pcs.background(Colors.getWhite());
 
-        Edit.display(pcs);
-
         Calendar.display(pcs);
 
+        drawTaskBar(pcs);
+
+        TaskDone.display(pcs);
 
 
 
 
-    }
-
-    public void drawTaskEditor(PApplet pcs){
-
-        //too complex as for now
 
     }
 
     /* *************** COMMON PARTS **************** */
+
+    public void drawTaskBar(PApplet pcs){
+
+        Notes.display(pcs);
+
+        pcs.fill(0); pcs.textSize(50);
+        pcs.text("LISTA DE TAREAS", 50,100);
+        Edit.display(pcs);
+
+    }
 
     /*public void ActionBar(PApplet pcs){
 

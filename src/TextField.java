@@ -5,7 +5,7 @@ import static processing.core.PConstants.BACKSPACE;
 public class TextField {
 
 
-    float x0, y0, w;
+    float x0, y0, w, stop;
 
     int spacing;
     String purpose;
@@ -19,10 +19,11 @@ public class TextField {
 
     boolean selected = false;
 
-    public TextField(PApplet pcs, float x0, float y0, float w, int s, String p) {
+    public TextField(PApplet pcs, float x0, float y0, float w, float stop, int s, String p) {
         this.x0 = x0;
         this.y0 = y0;
         this.w = w;
+        this.stop = stop;
         spacing=s;
         purpose = p;
         lineColor = pcs.color(200, 200, 200);
@@ -55,7 +56,7 @@ public class TextField {
         }
 
     public void addText(char c) {
-        if (this.text.length() + 1 < w) {
+        if (this.text.length() + 1 < stop) {
             this.text += c;
         }
     }

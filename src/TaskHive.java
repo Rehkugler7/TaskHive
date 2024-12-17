@@ -8,11 +8,13 @@ public class TaskHive extends PApplet {
     - textfield añadir boolean contraseña
     - añadir cursor boton
     - añadir icons del banner
-    - añadir tipografía por todo, selects
+    - añadir tipografía por todo, selects y colores
     - cambiar colores select
     - añadir iconos round button y hacerlo
     - cambiar idioma
     - afegir ifs a keyPressed i a mousePressed
+    - afegir límit de paraules als textfields
+    - afegir mayus textField
      */
 
     ColorPalette appColors;
@@ -36,7 +38,7 @@ public class TaskHive extends PApplet {
     public void setup(){
         appColors = new ColorPalette(this);
         appFonts = new Fonts(this);
-        gui = new GUI(this, appColors);
+        gui = new GUI(this, appColors, appFonts);
         icons = new Icons(this);
     }
 
@@ -52,9 +54,6 @@ public class TaskHive extends PApplet {
             break;
 
             case Calendar: gui.drawCalendar(this);
-            break;
-
-            case TaskCreator: gui.drawTaskEditor(this);
             break;
 
 
@@ -80,6 +79,13 @@ public class TaskHive extends PApplet {
         }
 
         gui.Calendar.checkButtons(this);
+        gui.Notes.isPressed(this);
+        if(gui.TaskDone.ok.mouseOverButton(this) && gui.TaskDone.ok.enabled){
+            gui.TaskDone.setNotifOn(false);
+        }
+        else {
+            gui.TaskDone.setNotifOn(true);
+        }
     }
 
     public void keyPressed(){
@@ -92,6 +98,7 @@ public class TaskHive extends PApplet {
         else if(keyCode==RIGHT){
             gui.Calendar.nextMonth();
         }
+        gui.Notes.keyPressed(key, keyCode);
     }
 
 }

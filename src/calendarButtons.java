@@ -36,7 +36,7 @@ public class calendarButtons {
                 pcs.fill(appColors.getGrey());
             }
             pcs.stroke(appColors.getBlack()); pcs.strokeWeight(3);
-            pcs.rect(x, y, w, h, 5);
+            pcs.rect(x, y, w, h);
             if(selected){
                 pcs.fill(appColors.getPrimaryOne()); pcs.strokeWeight(3);
                 pcs.circle(x + w/2, y+h/2, 120);
